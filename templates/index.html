@@ -1,0 +1,143 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<title>Inicio | AgroCognitive</title>
+<!--
+
+Template 2080 Minimax
+
+http://www.tooplate.com/view/2080-minimax
+
+-->
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/nivo-lightbox.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="{{ STATIC_URL }}css/style.css">
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+<!-- navigation -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="{% url 'menuPrincipal' %}" class="navbar-brand smoothScroll">AgroCognitive</a>
+		</div>
+	</div>
+</div>		
+
+<!-- service section -->
+<div id="login">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<h2>Agrega inteligencia a tus plantaciones</h2>
+			</div>
+		</div>
+		<div class="row">
+			<br>
+			<div class="col-md-4 col-sm-4 col-md-offset-4" style="border: 2px solid #444;">
+				<form method="POST" encType="multipart/form-data" name="formLogin">
+					{% csrf_token %}
+					<br>
+			        <p>
+			          <label>Usuario</label>
+			          <div id="wrapper-login">
+			            <!--<i class="fa fa-user fa-2x" aria-hidden="true"></i>-->
+			            <input class="w3-input" type="text" style="width:90%" required>
+			            {{form.identificacion}}
+			          </div>
+			        </p>
+			        <p>
+			          <label>Password</label>
+			          <div id="wrapper-login">
+			              <!--<i class="fa fa-lock fa-2x" aria-hidden="true"></i>-->
+			              <input class="w3-input" type="password" style="width:90%" required>
+			              {{form.clave}}
+			          </div>
+			        </p>
+
+			        <p>
+			          <input id="milk" class="w3-check" type="checkbox" checked="checked">
+			          <label>Recordarme</label>
+			        </p>
+			        <p class="text-center">
+			          <a href=""><label>¿Olvidó su contraseña?</label></a>
+			        </p>
+
+			        <p class="text-center">
+			          <button class="btn btn-warning" type="submit">Iniciar Sesión</button>
+			        </p>
+
+			    </form>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<img src="../static/img/dash-agro.png" style="position: fixed;">
+
+<!-- divider section -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-1 col-sm-1"></div>
+		<div class="col-md-10 col-sm-10">
+			<hr>
+		</div>
+		<div class="col-md-1 col-sm-1"></div>
+	</div>
+</div>
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<ul class="list-inline">
+                    <li>
+                        <a target="_blank" href="https://twitter.com/gia_usb" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCfNP1LYdgX3qOONWqjGgGLA" class="btn-social btn-outline"><i class="fa fa-fw fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://github.com/GIA-USB" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+				<p>Desarrollado por <a href="https://www.smartbasegroup.com" target="_blank">Smartbase Group</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- javascript js -->	
+<script src="{{ STATIC_URL }}js/jquery.js"></script>
+<script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>	
+<script src="{{ STATIC_URL }}js/nivo-lightbox.min.js"></script>
+<script src="{{ STATIC_URL }}js/smoothscroll.js"></script>
+<script src="{{ STATIC_URL }}js/jquery.nav.js"></script>
+<script src="{{ STATIC_URL }}js/isotope.js"></script>
+<script src="{{ STATIC_URL }}js/imagesloaded.min.js"></script>
+<script src="{{ STATIC_URL }}js/custom.js"></script>
+
+</body>
+</html>

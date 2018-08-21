@@ -1,0 +1,222 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+
+	<title>Información Cultivo | AgroCognitive</title>
+
+	<!-- stylesheet css -->
+	<link rel="stylesheet" href="../static/css/bootstrap.min.css">
+	<link rel="stylesheet" href="../static/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../static/css/nivo-lightbox.css">
+	<link rel="stylesheet" href="../static/css/nivo_themes/default/default.css">
+	<link rel="stylesheet" href="../static/css/style.css">
+	<!-- google web font css -->
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,300,600,700' rel='stylesheet' type='text/css'>
+
+</head>
+<body data-spy="scroll" data-target=".navbar-collapse">
+	
+<!-- navigation -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="{% url 'menuPrincipal' %}" class="navbar-brand smoothScroll">AgroCognitive</a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#contact" class="smoothScroll">Bienvenida, María</a></li>
+				<li>
+					<div class="hamburger-btn" onclick="openNav()" style="position: relative;top: 25px; left: 30px;">
+						<div></div>
+						<div></div>
+						<div></div>	
+					</div>
+				</li>
+			</ul>
+			<div id="mySidenav" class="sidenav">
+					  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+					  <a href="#">
+					  	<img src="../static/img/cargarImg.png" width="20%" style="margin-right: 10px;">
+					  	<h5 style="display: inline-block;">
+					  		Cargar imágenes
+					  	</h5>
+					  </a>
+					  <a href="#">
+					  	<img src="../static/img/monitorearTerreno.png" width="20%" style="margin-right: 10px;">
+					  	<h5 style="display: inline-block;">
+					  		Monitorear terrenos
+					  	</h5>
+					  </a>
+					  <a href="#">
+					  	<img src="../static/img/monitorearCultivo.png" width="20%" style="margin-right: 10px;">
+					  	<h5 style="display: inline-block;">
+					  		Monitorear cultivos
+					  	</h5>
+					  </a>
+					  <a href="#">
+					  	<img src="../static/img/reporte.png" width="20%" style="margin-right: 10px;">
+					  	<h5 style="display: inline-block;">
+					  		Generar reportes
+					  	</h5>
+					  </a>
+					  <a href="#">
+					  	<img src="../static/img/historico.png" width="20%" style="margin-right: 10px;">
+					  	<h5 style="display: inline-block;">
+					  		Históricos
+					  	</h5>
+					  </a>
+			</div>
+		</div>
+	</div>
+</div>		
+
+<!-- service section -->
+<div id="infoCultivos">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<h2>Estado de tu cultivo</h2>
+			</div>
+		</div>
+		<div class="row">
+			<br>
+			<div class="col-md-6 col-sm-6">
+				<br>
+				<div class="detalles-cultivo">
+					<ul class="fa-ul">
+						{% if pAfectado > 0 %}
+							<li><i class="fa-li fa fa-chevron-right"></i><p>El {{pAfectado}}% de tu cultivo está afectado</p></li>
+							<li><i class="fa-li fa fa-chevron-right"></i><p>Respecto al monitoreo anterior se ha incrementado en un 10% la extensión afectada</p></li>
+							<li><i class="fa-li fa fa-chevron-right"></i><p>Hemos detectado las siguientes deficiencias en su cultivo:</p></li>
+							<br>
+							<table rules="rows">
+								<thead>
+									<th><h4><b>Diagnóstico</b></h4></th>
+									<th><h4><b>% de terreno afectado</b></h4></th>
+									<th><h4><b>Acción</b></h4></th>
+								</thead>
+								<tbody>
+									<tr>
+										<td>
+											<h4>Enfermedad de la roya</h4>
+										</td>
+										<td>
+											<h4>{{pRoya}}%</h4>
+										</td>
+										<td>
+											<h4>Aplicar producto en las coordenadas X Y</h4>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<h4>Deficiencia moderada de nitrógeno en los suelos</h4>
+										</td>
+										<td>
+											<h4>20%</h4>
+										</td>
+										<td>
+											<h4>Aplicar producto en las coordenadas X Y</h4>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						{% else %}
+							<li><i class="fa-li fa fa-chevron-right"></i><p>Tu cultivo está totalmente sano. ¡Buen trabajo!</p></li>
+						{% endif %}
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5 col-md-offset-1 wrapper-cultivo2">
+				<!--<i class="fa fa-cubes"></i>-->
+				<img src="{{ STATIC_URL }}img/{{ diagnostico }}" class="img-responsive" style="margin-top:20px;">
+				<div class="icon-bar">
+				  <a href="#"><i class="fa fa-search-plus"></i></a> 
+				  <a href="#"><i class="fa fa-search-minus"></i></a> 
+				  <a href="#"><img class="img-responsive" src="../static/img/grab.png"></a> 
+				  <a href="#"><i class="fa fa-expand"></i></a>
+				</div>
+				<br>
+				<ul style="list-style-type: none;">
+				    <li style="float: left; margin-right: 25px;">
+				    	<span style="float: left; width: 20px; height: 20px; background-color: #ff7f0e; margin: 5px 10px 0px 0px;"></span> <b>Enfermedad y/o plaga</b>
+				    </li>
+				    <li style="float: left; margin-right: 25px;">
+				    	<span style="float: left; width: 20px; height: 20px; background-color: #1f77b4; margin: 5px 10px 0px 0px;"></span> <b>Falta de nutrientes</b>
+				    </li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- divider section -->
+<div class="container">
+	<div class="row">
+		<br><br>
+		<div class="col-md-1 col-sm-1"></div>
+		<div class="col-md-10 col-sm-10">
+			<hr>
+		</div>
+		<div class="col-md-1 col-sm-1"></div>
+	</div>
+</div>
+
+<!-- footer section -->
+<footer>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12 col-sm-12 text-center">
+				<ul class="list-inline">
+                    <li>
+                        <a target="_blank" href="https://twitter.com/gia_usb" class="btn-social btn-outline"><i class="fa fa-fw fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://www.youtube.com/channel/UCfNP1LYdgX3qOONWqjGgGLA" class="btn-social btn-outline"><i class="fa fa-fw fa-youtube"></i></a>
+                    </li>
+                    <li>
+                        <a target="_blank" href="https://github.com/GIA-USB" class="btn-social btn-outline"><i class="fa fa-fw fa-linkedin"></i></a>
+                    </li>
+                </ul>
+				<p>Desarrollado por <a href="https://www.smartbasegroup.com" target="_blank">Smartbase Group</a></p>
+			</div>
+		</div>
+	</div>
+</footer>
+
+
+<!-- javascript js -->	
+<script src="../static/js/jquery.js"></script>
+<script src="../static/js/bootstrap.min.js"></script>	
+<script src="../static/js/nivo-lightbox.min.js"></script>
+<script src="../static/js/smoothscroll.js"></script>
+<script src="../static/js/jquery.nav.js"></script>
+<script src="../static/js/isotope.js"></script>
+<script src="../static/js/imagesloaded.min.js"></script>
+<script src="../static/js/custom.js"></script>
+<script type="text/javascript">
+	/* Set the width of the side navigation to 250px */
+	function openNav() {
+	    document.getElementById("mySidenav").style.width = "250px";
+	}
+
+	/* Set the width of the side navigation to 0 */
+	function closeNav() {
+	    document.getElementById("mySidenav").style.width = "0";
+	}
+</script>
+
+</body>
+</html>

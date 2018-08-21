@@ -1,0 +1,12 @@
+applications:
+- path: .
+  memory: 128M
+  instances: 1
+  domain: mybluemix.net
+  name: AgroCognitive-Desafio
+  host: AgroCognitive-Desafio
+  command: bash ./run.sh
+  disk_quota: 1024M
+  buildpack: python_buildpack
+  services:
+  - BD-AgroCognitive
