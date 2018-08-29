@@ -1,4 +1,4 @@
-@import url(font-awesome.min.css);
+@import url("https://use.fontawesome.com/releases/v5.2.0/css/all.css");
 @import url("https://fonts.googleapis.com/css?family=Raleway:200,300,400,500,600");
 /*
   Industrious by TEMPLATED
@@ -27,6 +27,25 @@
 .btn-icon-social {
   margin-top: 5px;
 }
+
+.icon-outline {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;
+    font-size: 30px;
+    color: #A3C534;
+    background: white;
+    transition: all .3s ease-in-out;
+}
+
+.icon-outline:hover,
+.icon-outline:focus,
+.icon-outline:active,
+.icon-outline.active {
+    color: #f2af00;
+    background: #fff;
+}
+
 .btn-outline {
     margin-left: 30px;
     margin-right: 30px;
